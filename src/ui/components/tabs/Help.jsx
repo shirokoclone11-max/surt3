@@ -35,6 +35,10 @@ const Help = ({ settings, onSettingChange }) => {
             <span className="feature-name">Blatant Aimbot</span>
             <KeybindSlot keybind={settings?.keybinds_?.toggleAutomatic_ || 'KeyI'} />
           </div>
+          <div className="feature-item">
+            <span className="feature-name">Spinbot</span>
+            <KeybindSlot keybind={settings?.keybinds_?.toggleSpinbot_ || 'KeyO'} />
+          </div>
         </div>
       </div>
       <div className="help-title">

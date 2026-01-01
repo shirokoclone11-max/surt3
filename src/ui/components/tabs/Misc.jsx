@@ -29,6 +29,7 @@ const Misc = ({ settings, onSettingChange }) => {
         onEnabledChange={(v) => onSettingChange((s) => (s.autoLoot_.enabled_ = v))}
       />
     </div>
+    
   );
 };
 

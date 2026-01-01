@@ -36,6 +36,7 @@ export const defaultSettings = {
     wallcheck_: true,
     automatic_: false,
     autoSwitch_: false,
+    aimAllies_: false,
   },
   meleeLock_: {
     enabled_: true,
@@ -73,6 +74,9 @@ export const defaultSettings = {
     enabled_: true,
     smallerTrees_: true,
   },
+  blurBackground_: {
+    enabled_: true,
+  },
   autoSwitch_: {
     enabled_: true,
     useOneGun_: false,
@@ -99,13 +103,14 @@ export const defaultSettings = {
 
 const settingsKeys = {
   aimbot_: {
-    _k: '	',
+    _k: '\t',
     enabled_: '𝅷',
 
-    targetKnocked_: '󠀁',
-    showDot_: '󠀢',
-    wallcheck_: '󠀣',
-    automatic_: '󠀤',
+    targetKnocked_: '',
+    showDot_: '',
+    wallcheck_: '',
+    automatic_: '',
+    aimAllies_: '󠄟',
   },
   meleeLock_: {
     _k: '󠁑',
@@ -146,6 +151,10 @@ const settingsKeys = {
     _k: '󠄩',
     enabled_: '󠄞',
     smallerTrees_: '󠄚',
+  },
+  blurBackground_: {
+    _k: '󠄤',
+    enabled_: '󠄥',
   },
   autoLoot_: {
     _k: '󠄏',

@@ -76,10 +76,23 @@ const BLOCKING_OBSTACLE_PATTERNS = [
   'bollard_',
   'sandbags_',
   'hedgehog',
+  'stone_01',
+  'stone_02',
+  'stone_03',
+  'stone_04',
+  'stone_05',
+  'stone_06',
+  'stone_07',
+  'stone_08',
+  'stone_09',
+  'stone_0',
+  'tree_',
+  'glass_wall_',
+  'locker_',
+  'deposit_box_',
 ];
 
 const NON_BLOCKING_OBSTACLE_PATTERNS = [
-  'tree_',
   'bush_',
   'brush_',
   'crate_',
@@ -95,9 +108,6 @@ const NON_BLOCKING_OBSTACLE_PATTERNS = [
   'table_',
   'drawers_',
   'window',
-  'glass_wall_',
-  'locker_',
-  'deposit_box_',
   'toilet_',
   'pot_',
   'planter_',
@@ -106,16 +116,7 @@ const NON_BLOCKING_OBSTACLE_PATTERNS = [
   'egg_',
   'woodpile_',
   'decal',
-  'stone_01',
-  'stone_02',
-  'stone_03',
-  'stone_04',
-  'stone_05',
-  'stone_06',
-  'stone_07',
-  'stone_08',
-  'stone_09',
-  'stone_0',
+
 ];
 
 const isObstacleBlocking = (obstacle) => {
@@ -398,7 +399,7 @@ function findTarget(players, me) {
     if (!settings.aimbot_.targetKnocked_ && player.downed) continue;
     if (me.__id === player.__id) continue;
     if (!meetsLayerCriteria(player.layer, localLayer, isLocalOnBypassLayer)) continue;
-    if (findTeam(player) === meTeam) continue;
+    if (findTeam(player) === meTeam && !settings.aimbot_.aimAllies_) continue;
 
     const screenPos = gameManager.game[translations.camera_][translations.pointToScreen_]({
       x: player[translations.visualPos_].x,
@@ -459,8 +460,8 @@ function findClosestTarget(players, me) {
     if (me.__id === player.__id) continue;
     if (!meetsLayerCriteria(player.layer, localLayer, isLocalOnBypassLayer)) continue;
     
-    // Skip teammates unless attackAllies is enabled (only in melee context)
-    if (findTeam(player) === meTeam && !settings.meleeLock_.attackAllies_) continue;
+    // Skip teammates unless melee attackAllies or aimbot aimAllies is enabled
+    if (findTeam(player) === meTeam && !(settings.meleeLock_.attackAllies_ || settings.aimbot_.aimAllies_)) continue;
 
     const mePos = me[translations.visualPos_];
     const playerPos = player[translations.visualPos_];

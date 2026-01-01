@@ -38,6 +38,20 @@ const Main = ({ settings, onSettingChange }) => {
           onChange={(v) => onSettingChange((s) => (s.aimbot_.wallcheck_ = v))}
           shouldWarning={(v) => !v}
         />
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <WarningCheckbox
+            id="aimbot-aim-allies"
+            label="Aim Allies (Aim Teammates)"
+            checked={settings.aimbot_.aimAllies_}
+            onChange={(v) => onSettingChange((s) => (s.aimbot_.aimAllies_ = v))}
+            shouldWarning={(v) => v}
+          />
+          <div style={{ marginTop: '0.25rem' }}>
+            <p className="keybind-help-text" style={{ margin: 0 }}>
+              Enabling will allow the aimbot to target teammates and affects automatic/blatant behavior.
+            </p>
+          </div>
+        </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
           <Checkbox
             id="aimbot-automatic"

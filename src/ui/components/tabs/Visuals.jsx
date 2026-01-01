@@ -100,6 +100,9 @@ const Visuals = ({ settings, onSettingChange }) => {
       <SectionTitle
         icon={Icons.Spinbot_}
         label="Spinbot"
+        keybind={settings.keybinds_.toggleSpinbot_}
+        keybindEditable={true}
+        onKeybindChange={(newKey) => onSettingChange((s) => (s.keybinds_.toggleSpinbot_ = newKey))}
         enabled={settings.spinbot_.enabled_}
         onEnabledChange={(v) => onSettingChange((s) => (s.spinbot_.enabled_ = v))}
       />
